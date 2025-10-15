@@ -1,1 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Profile</title>
+    <style>
+        .profile-card {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #5c8a8a 0%, #e4edf9 100%);
+            color: #333;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #757272;
+            margin-right: 30px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin: 0 0 5px 0;
+            font-size: 2.2em;
+        }
+        
+        .tagline {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-top: 0;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        
+        .icon {
+            width: 20px;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+        
+        .section {
+            margin: 25px 0;
+            cursor: pointer;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.4em;
+            color: #2c3e50;
+        }
+        
+        .toggle-icon {
+            font-size: 1.2em;
+        }
+        
+        .content {
+            display: none;
+            padding-top: 15px;
+            line-height: 1.6;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-pill {
+            background: #2c3e50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-link {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            text-decoration: underline;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div id="developerProfile" class="profile-card">
+        <!-- Profile will be rendered here -->
+    </div>
 
+    <script>
+        // Developer profile data
+        const developer = {
+            name: "Khanyisile Nkosi",
+            title: "Full Stack Developer",
+            avatar: "ProPic.jpg",
+            bio: "Passionate about building scalable web applications with cutting-edge technologies. Experienced in JavaScript, React, and Node.js. Always eager to learn and grow in the tech industry.",
+            contact: {
+                email: "nkosik8@gmail.com",
+                phone: "+27 (78) 472-0060",
+                location: "Johannesburg, South Africa",
+                website: "khanyisile.dev"
+            },
+            skills: [
+                "JavaScript/ES6+", "Html5", "CSS3", "React.js", "Node.js", "Express.js", "MongoDB", "RESTful APIs", "Git/GitHub", "Agile Methodologies", "Python"
+
+            ],
+            experience: [
+            
+                {
+                    description: "Working on advance development skills. Stay tuned",
+                }
+            ],
+            education: ["Diploma in Information Technology - PC Training and Business College, 2016"],
+            certifications: [
+                "Certificate in Web Development - CodSoft, 2024",
+                "Certificate in Full Stack Development - FNB APP Academy, 2025",
+                "Certificate in JavaScript Algorithms and Data Structures - freeCodeCamp",
+                "Certificate in React - The Complete Guide (incl Hooks, React Router, Redux) - Udemy"
+            ],
+            social: {
+                github: "https://github.com/KhanyiNkosi",
+                linkedin: "www.linkedin.com/in/khanyisile-natashie-nkosi-57a281a6.com",
+            }
+        };
+
+        // DOM elements
+        const profileContainer = document.getElementById('developerProfile');
+
+        // Create profile sections
+        function createProfile() {
+            // Header section
+            const header = `
+                <div class="header">
+                    <img src="${developer.avatar}" alt="${developer.name}" class="avatar">
+                    <div>
+                        <h1>${developer.name}</h1>
+                        <p class="tagline">${developer.title}</p>
+                        <p>${developer.bio}</p>
+                    </div>
+                </div>
+            `;
+
+            // Contact information
+            const contactInfo = `
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIwIDRINGMtMS4xIDAtMiAuOS0yIDJ2MTJjMCAxLjEuOSAyIDIgMmgxNmMxLjEgMCAyLS45IDItMlY2YzAtMS4xLS45LTItMi0yem0wIDE0bC04LTUtOCA1VjZsOCA1IDgtNVYxOHoiLz48L3N2Zz4=" class="icon" alt="Email">
+                        ${developer.contact.email}
+                    </div>
+                    <div class="contact-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIwIDIxLjlsLTMuOS0zLjljLTEuNSAxLjQtMy40IDIuMS01LjUgMi4xLTQuNCAwLTgtMy42LTgtOHMzLjYtOCA4LTggOCAzLjYgOCA4YzAgMi4xLS44IDQuMS0yLjEgNS41bDMuOSAzLjktMS40IDEuNHptLTgtNC45YzMuMyAwIDYtMi43IDYtNnMtMi43LTYtNi02LTYgMi43LTYgNiAyLjcgNiA2IDZ6Ii8+PC9zdmc+" class="icon" alt="Phone">
+                        ${developer.contact.phone}
+                    </div>
+                    <div class="contact-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgMThjLTQuNDEgMC04LTMuNTktOC04czMuNTktOCA4LTggOCAzLjU5IDggOC0zLjU5IDgtOCA4eiIvPjxwYXRoIGQ9Ik0xMiAxMWMtMS42NiAwLTMgMS4zNC0zIDNoLTJjMC0yLjc2IDIuMjQtNSA1LTVzNSA0LjI0IDUgNS0yLjI0IDUtNSA1Yy0xLjEgMC0yLjEtLjM1LTIuOTItLjk0bC0xLjQ1IDEuNDVDMTAuMDQgMTguMjQgMTEuMDIgMTkgMTIgMTljMy44NyAwIDctMy4xMyA3LTdzLTMuMTMtNy03LTctNyAzLjEzLTcgN2gyYzAtMS42NiAxLjM0LTMgMy0zeiIvPjwvc3ZnPg==" class="icon" alt="Location">
+                        ${developer.contact.location}
+                    </div>
+                    <div class="contact-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bS0xIDE4di0yaDJ2MnptMi41LTIuMjVjLS40MS0uNzMtMS4xOC0xLjE3LTIuMDItMS4yMlYxM2gydjEuNzVjLjg0LjA2IDEuNTkuNTEgMiAyLjI1LjU4LjU0IDEuMjUuODMgMi4wMi44MnYyYy0xLjY0LS4wMi0zLjA5LS44OC00LTIuMjV6TTEzIDEyaC0ydjFjMCAxLjEuOSAyIDIgMnYtM3oiLz48L3N2Zz4=" class="icon" alt="Website">
+                        ${developer.contact.website}
+                    </div>
+                </div>
+            `;
+
+            // Skills section
+            const skillsSection = `
+                <div class="section" onclick="toggleSection('skillsContent')">
+                    <div class="section-title">
+                        <h2>Technical Skills</h2>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div id="skillsContent" class="content">
+                        <div class="skills">
+                            ${developer.skills.map(skill => 
+                                `<div class="skill-pill">${skill}</div>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Experience section
+            const experienceSection = `
+                <div class="section" onclick="toggleSection('experienceContent')">
+                    <div class="section-title">
+                        <h2>Professional Experience</h2>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div id="experienceContent" class="content">
+                        ${developer.experience.map(job => `
+                            <div>
+                                <h3>${job.role} | ${job.company}</h3>
+                                <p><em>${job.period}</em></p>
+                                <p>${job.description}</p>
+                            </div>
+                        `).join('<hr>')}
+                    </div>
+                </div>
+            `;
+
+            // Education section
+            const educationSection = `
+                <div class="section" onclick="toggleSection('educationContent')">
+                    <div class="section-title">
+                        <h2>Education</h2>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div id="educationContent" class="content">
+                        <p>${developer.education.join('</p><p>')}</p>
+                        <p>${developer.certifications.join('</p><p>')}</p>
+                    </div>
+                </div>
+            `;
+
+            // Social links
+            const socialSection = `
+                <div class="social-links">
+                    <a href="${developer.social.github}" target="_blank" class="social-link">GitHub</a>
+                    <a href="${developer.social.linkedin}" target="_blank" class="social-link">LinkedIn</a>
+                </div>
+            `;
+
+            // Combine all sections
+            profileContainer.innerHTML = `
+                ${header}
+                ${contactInfo}
+                ${skillsSection}
+                ${experienceSection}
+                ${educationSection}
+                ${socialSection}
+            `;
+        }
+
+        // Toggle section content visibility
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Initialize profile
+        createProfile();
+    </script>
+</body>
+<footer>
+    <p style="text-align:center; color:#757272; font-size:0.95em; margin:20px 0 0 0;">
+        © 2025 KHANYISILE NKOSI. All rights reserved.
+    </p>
+</footer>
+</html>
